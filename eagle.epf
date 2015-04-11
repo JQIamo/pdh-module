@@ -20,7 +20,7 @@ UsedLibrary="/Users/npisenti/Documents/jqi/eagle-config/lbr-jqi/supply1.lbr"
 
 [Win_1]
 Type="Schematic Editor"
-Loc="360 248 1761 1078"
+Loc="38 65 1439 895"
 State=1
 Number=1
 File="PDH_Module.sch"
@@ -63,12 +63,12 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=91
-Views=" 1: 6.47919 26.9203 153.962 175.186 2: -64.5428 -14.4751 97.4521 91.1511 3: -80.2935 5.18299 141.373 101.089"
+Views=" 1: 6.47919 26.9203 153.962 175.186 2: -64.5428 -14.4751 97.4521 91.1511"
 Sheet=2
 
 [Win_2]
 Type="Board Editor"
-Loc="360 248 1799 1098"
+Loc="0 23 1439 873"
 State=2
 Number=2
 File="PDH_Module.brd"
