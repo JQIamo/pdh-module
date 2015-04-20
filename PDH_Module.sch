@@ -5276,10 +5276,9 @@ W = angled&lt;p&gt;
 <part name="J1" library="connector-jqi" deviceset="VG64" device="P"/>
 <part name="P+5" library="supply1" deviceset="+15V" device=""/>
 <part name="P-4" library="supply1" deviceset="-15V" device=""/>
-<part name="R13" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="C21" library="rlc-jqi" deviceset="CAP" device="0603"/>
-<part name="C22" library="rlc-jqi" deviceset="CAP" device="0603"/>
+<part name="C22" library="rlc-jqi" deviceset="CAP" device="0603" value="100nF"/>
 <part name="C23" library="rlc-jqi" deviceset="CAP" device="0603" value="10nF"/>
 <part name="RFOUT" library="connector-jqi" deviceset="SMA" device="J502"/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
@@ -5307,14 +5306,16 @@ W = angled&lt;p&gt;
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="pdh-module" deviceset="AD8021" device=""/>
-<part name="U2" library="pdh-module" deviceset="AD8021" device=""/>
 <part name="R18" library="rlc-jqi" deviceset="RES" device="0603"/>
+<part name="R13" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
+<part name="GND26" library="supply1" deviceset="GND" device=""/>
+<part name="R14" library="rlc-jqi" deviceset="RES" device="0603"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="27.94" y="0" size="1.778" layer="98">Optional gain stage</text>
-<text x="27.94" y="-5.08" size="1.778" layer="98">Set R2, R3</text>
+<text x="29.21" y="-11.43" size="1.778" layer="98">Optional gain stage</text>
+<text x="29.21" y="-15.24" size="1.778" layer="98">Set R2, R3</text>
 <text x="422.91" y="128.27" size="1.778" layer="91">100mA, 5V</text>
 <text x="502.92" y="50.8" size="1.778" layer="98" rot="R180">decouples internal reference</text>
 <text x="147.32" y="-49.53" size="1.778" layer="91">12V?</text>
@@ -5323,8 +5324,13 @@ W = angled&lt;p&gt;
 <text x="195.58" y="45.72" size="1.778" layer="91">optional filter network</text>
 <text x="-31.75" y="-21.59" size="1.778" layer="91">power splitter: 408-1095-1-ND</text>
 <text x="62.23" y="8.89" size="1.778" layer="91">AD8021</text>
-<text x="245.11" y="48.26" size="1.778" layer="91">AD8021</text>
-<text x="245.11" y="43.18" size="1.778" layer="91">pre-amp?</text>
+<text x="163.83" y="101.6" size="1.778" layer="91">minicircuits filter?</text>
+<text x="163.83" y="97.79" size="1.778" layer="91">use qucs to build filter</text>
+<text x="163.83" y="93.98" size="1.778" layer="91">PI topology?</text>
+<text x="208.28" y="35.56" size="1.778" layer="91">design in qucs</text>
+<text x="233.68" y="38.1" size="1.778" layer="91">transfer to input impedance of servo</text>
+<text x="236.22" y="31.75" size="1.778" layer="91">probably just 50 ohm terminated</text>
+<text x="207.01" y="-15.24" size="1.778" layer="91">opt 50 ohm termination</text>
 </plain>
 <instances>
 <instance part="P-1" gate="1" x="10.16" y="60.96"/>
@@ -5357,7 +5363,7 @@ W = angled&lt;p&gt;
 <instance part="PD_IN" gate="G$1" x="180.34" y="-25.4"/>
 <instance part="ERR" gate="G$1" x="284.48" y="38.1" rot="MR0"/>
 <instance part="PD_POW" gate="G$1" x="213.36" y="-68.58" rot="MR0"/>
-<instance part="GND8" gate="1" x="185.42" y="-30.48"/>
+<instance part="GND8" gate="1" x="182.88" y="-36.83"/>
 <instance part="GND10" gate="1" x="210.82" y="-81.28"/>
 <instance part="GND11" gate="1" x="281.94" y="27.94"/>
 <instance part="IC5" gate="G$1" x="556.26" y="30.48"/>
@@ -5409,7 +5415,6 @@ W = angled&lt;p&gt;
 <instance part="J1" gate="G$1" x="-63.5" y="125.73"/>
 <instance part="P+5" gate="1" x="-88.9" y="95.25"/>
 <instance part="P-4" gate="1" x="-35.56" y="82.55"/>
-<instance part="R13" gate="G$1" x="-58.42" y="-57.15" rot="R90"/>
 <instance part="GND19" gate="1" x="222.25" y="74.93"/>
 <instance part="C21" gate="G$1" x="231.14" y="87.63" rot="R270"/>
 <instance part="C22" gate="G$1" x="199.39" y="107.95" rot="R180"/>
@@ -5440,8 +5445,10 @@ W = angled&lt;p&gt;
 <instance part="GND24" gate="1" x="210.82" y="137.16"/>
 <instance part="GND25" gate="1" x="212.09" y="185.42"/>
 <instance part="U1" gate="G$1" x="63.5" y="10.16"/>
-<instance part="U2" gate="G$1" x="245.11" y="38.1"/>
 <instance part="R18" gate="G$1" x="227.33" y="35.56" rot="R90"/>
+<instance part="R13" gate="G$1" x="34.29" y="2.54" rot="R90"/>
+<instance part="GND26" gate="1" x="34.29" y="-6.35"/>
+<instance part="R14" gate="G$1" x="203.2" y="-13.97" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -5500,7 +5507,12 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="PD_IN" gate="G$1" pin="2"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="182.88" y1="-27.94" x2="185.42" y2="-27.94" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="-27.94" x2="182.88" y2="-30.48" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="P$1"/>
+<wire x1="182.88" y1="-30.48" x2="182.88" y2="-34.29" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="-19.05" x2="203.2" y2="-30.48" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="-30.48" x2="182.88" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="182.88" y="-30.48"/>
 </segment>
 <segment>
 <pinref part="GND10" gate="1" pin="GND"/>
@@ -5573,12 +5585,8 @@ W = angled&lt;p&gt;
 </segment>
 <segment>
 <pinref part="RF_IN" gate="G$1" pin="2"/>
-<wire x1="-67.31" y1="-54.61" x2="-67.31" y2="-62.23" width="0.1524" layer="91"/>
+<wire x1="-67.31" y1="-54.61" x2="-67.31" y2="-63.5" width="0.1524" layer="91"/>
 <pinref part="GND17" gate="1" pin="GND"/>
-<pinref part="R13" gate="G$1" pin="P$1"/>
-<wire x1="-67.31" y1="-62.23" x2="-67.31" y2="-63.5" width="0.1524" layer="91"/>
-<wire x1="-58.42" y1="-62.23" x2="-67.31" y2="-62.23" width="0.1524" layer="91"/>
-<junction x="-67.31" y="-62.23"/>
 </segment>
 <segment>
 <pinref part="U4" gate="G$1" pin="GND"/>
@@ -5658,6 +5666,11 @@ W = angled&lt;p&gt;
 <pinref part="C16" gate="G$1" pin="P$2"/>
 <pinref part="GND25" gate="1" pin="GND"/>
 <wire x1="212.09" y1="187.96" x2="212.09" y2="189.23" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R13" gate="G$1" pin="P$1"/>
+<pinref part="GND26" gate="1" pin="GND"/>
+<wire x1="34.29" y1="-3.81" x2="34.29" y2="-2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="-15V" class="0">
@@ -5867,14 +5880,17 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="ERR" gate="G$1" pin="1"/>
 <wire x1="255.27" y1="38.1" x2="281.94" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="OUT"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="C10" gate="G$1" pin="P$2"/>
 <pinref part="RF2" gate="G$1" pin="RF"/>
-<wire x1="193.04" y1="-10.16" x2="193.04" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="-10.16" x2="193.04" y2="-8.89" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="P$2"/>
+<wire x1="193.04" y1="-8.89" x2="193.04" y2="-5.08" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="-8.89" x2="193.04" y2="-8.89" width="0.1524" layer="91"/>
+<junction x="193.04" y="-8.89"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -6211,10 +6227,7 @@ W = angled&lt;p&gt;
 <segment>
 <pinref part="RF_IN" gate="G$1" pin="1"/>
 <pinref part="C18" gate="G$1" pin="P$2"/>
-<wire x1="-67.31" y1="-52.07" x2="-58.42" y2="-52.07" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="P$2"/>
-<wire x1="-58.42" y1="-52.07" x2="-50.8" y2="-52.07" width="0.1524" layer="91"/>
-<junction x="-58.42" y="-52.07"/>
+<wire x1="-67.31" y1="-52.07" x2="-50.8" y2="-52.07" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
@@ -6435,7 +6448,10 @@ W = angled&lt;p&gt;
 <wire x1="19.05" y1="-46.99" x2="26.67" y2="-46.99" width="0.1524" layer="91"/>
 <wire x1="26.67" y1="-46.99" x2="26.67" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="P$1"/>
-<wire x1="26.67" y1="7.62" x2="38.1" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="26.67" y1="7.62" x2="34.29" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="R13" gate="G$1" pin="P$2"/>
+<wire x1="34.29" y1="7.62" x2="38.1" y2="7.62" width="0.1524" layer="91"/>
+<junction x="34.29" y="7.62"/>
 </segment>
 </net>
 <net name="N$58" class="0">
