@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -599,18 +599,6 @@ COMPLIANT TO JEDEC STANDARDS MO-187BA</description>
 <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
-<symbol name="+6V">
-<wire x1="1.27" y1="0.635" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="-1.27" y2="0.635" width="0.254" layer="94"/>
-<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+6V" x="0" y="0" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
-<symbol name="-6V">
-<wire x1="-1.27" y1="-0.635" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-2.54" x2="1.27" y2="-0.635" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="-5V" x="0" y="0" visible="off" length="short" direction="sup" rot="R270"/>
-</symbol>
 <symbol name="+5V">
 <wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
@@ -694,32 +682,6 @@ COMPLIANT TO JEDEC STANDARDS MO-187BA</description>
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="G$1" symbol="VDD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="+6V">
-<description>SUPPLY SYMBOL</description>
-<gates>
-<gate name="G$1" symbol="+6V" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="-6V">
-<description>SUPPLY SYMBOL</description>
-<gates>
-<gate name="G$1" symbol="-6V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -5506,20 +5468,32 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <part name="R4" library="rlc-jqi" deviceset="RES" device="0603"/>
 <part name="C7" library="rlc-jqi" deviceset="CAP" device="0603"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="RF1" library="pdh-module" deviceset="JSPHS" device=""/>
-<part name="RF2" library="pdh-module" deviceset="MIXER" device="_PL-052"/>
+<part name="RF1" library="pdh-module" deviceset="JSPHS" device="" value="JSPHS-26 (out of stock)">
+<attribute name="PARTNO" value="JSPHS-26"/>
+</part>
+<part name="RF2" library="pdh-module" deviceset="MIXER" device="_PL-052" value="ADE-1L+">
+<attribute name="PARTNO" value="ADE-1L+"/>
+</part>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="C10" library="rlc-jqi" deviceset="CAP" device="0603"/>
-<part name="PD_IN" library="connector-jqi" deviceset="SMA" device="J502"/>
-<part name="ERR" library="connector-jqi" deviceset="SMA" device="J502"/>
-<part name="PD_POW" library="connector-jqi" deviceset="SMA" device="J502"/>
+<part name="PD_IN" library="connector-jqi" deviceset="SMA" device="J502">
+<attribute name="PARTNO" value="J502-ND"/>
+</part>
+<part name="ERR" library="connector-jqi" deviceset="SMA" device="J502">
+<attribute name="PARTNO" value="J502-ND"/>
+</part>
+<part name="PD_POW" library="connector-jqi" deviceset="SMA" device="J502">
+<attribute name="PARTNO" value="J502-ND"/>
+</part>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="IC5" library="atmel" deviceset="MEGA8" device="-AI"/>
 <part name="GND31" library="supply1" deviceset="GND" device=""/>
-<part name="IC6" library="linear" deviceset="78L*" device="F" technology="05"/>
-<part name="SV1" library="con-lstb" deviceset="MA03-2" device=""/>
+<part name="IC6" library="linear" deviceset="78L*" device="F" technology="05">
+<attribute name="PARTNO" value="MC78L05ACHXCT-ND"/>
+</part>
+<part name="SV1" library="con-lstb" deviceset="MA03-2" device="" value="2x3Header"/>
 <part name="GND35" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="VDD1" library="supply1" deviceset="VDD" device=""/>
@@ -5531,22 +5505,26 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <part name="R6" library="rlc-jqi" deviceset="RES" device="0603" value="10k"/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="LCD_HEADER" library="mcu-accessories" deviceset="ML16" device="" value="Ribbon Header">
+<part name="LCD_HEADER" library="mcu-accessories" deviceset="ML16" device="" value="2x8Header">
 <attribute name="PARTNO" value="S9171-ND"/>
 </part>
 <part name="VDD3" library="supply1" deviceset="VDD" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="ENC_HEADER" library="mcu-accessories" deviceset="ML16" device=""/>
+<part name="ENC_HEADER" library="mcu-accessories" deviceset="ML16" device="" value="2x8Header">
+<attribute name="PARTNO" value="S9171-ND"/>
+</part>
 <part name="VDD2" library="supply1" deviceset="VDD" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
-<part name="RF_IN" library="connector-jqi" deviceset="SMA" device="J502"/>
+<part name="RF_IN" library="connector-jqi" deviceset="SMA" device="J502">
+<attribute name="PARTNO" value="J502-ND"/>
+</part>
 <part name="C18" library="rlc-jqi" deviceset="CAP" device="0603" value="10nF"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
-<part name="U$2" library="supply1" deviceset="+6V" device=""/>
 <part name="L3" library="rlc-jqi" deviceset="INDUCTOR" device="-0805" value="ferrite 1k"/>
 <part name="L4" library="rlc-jqi" deviceset="INDUCTOR" device="-0805" value="ferrite 1k"/>
-<part name="U$3" library="supply1" deviceset="-6V" device=""/>
-<part name="U4" library="pdh-module" deviceset="TPS7A49XX" device="" value="TPS7A49"/>
+<part name="U4" library="pdh-module" deviceset="TPS7A49XX" device="" value="TPS7A49">
+<attribute name="PARTNO" value="296-27751-1-ND"/>
+</part>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="C8" library="rlc-jqi" deviceset="CAP" device="0805" value="10uF"/>
 <part name="C19" library="rlc-jqi" deviceset="CAP" device="0603" value="10nF"/>
@@ -5555,12 +5533,18 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <part name="C20" library="rlc-jqi" deviceset="CAP" device="0603" value="10nF"/>
 <part name="P+3" library="supply1" deviceset="V+" device=""/>
 <part name="L5" library="rlc-jqi" deviceset="INDUCTOR" device="-0805" value="ferrite 1k"/>
-<part name="U3" library="pdh-module" deviceset="VCA824" device=""/>
+<part name="U3" library="pdh-module" deviceset="VCA824" device="">
+<attribute name="PARTNO" value="296-22898-5-ND"/>
+</part>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
 <part name="P-3" library="supply1" deviceset="-5V" device=""/>
 <part name="R10" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
-<part name="R11" library="rlc-jqi" deviceset="RES" device="0603"/>
-<part name="R12" library="rlc-jqi" deviceset="RES" device="0603"/>
+<part name="R11" library="rlc-jqi" deviceset="RES" device="0603" value="2.2k">
+<attribute name="PARTNO" value="P2.20KHCT-ND"/>
+</part>
+<part name="R12" library="rlc-jqi" deviceset="RES" device="0603" value="453R">
+<attribute name="PARTNO" value="P453HCT-ND"/>
+</part>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="J1" library="connector-jqi" deviceset="VG64" device="P"/>
 <part name="P+5" library="supply1" deviceset="+15V" device=""/>
@@ -5569,20 +5553,28 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <part name="C21" library="rlc-jqi" deviceset="CAP" device="0603"/>
 <part name="C22" library="rlc-jqi" deviceset="CAP" device="0603" value="100nF"/>
 <part name="C23" library="rlc-jqi" deviceset="CAP" device="0603" value="10nF"/>
-<part name="RFOUT" library="connector-jqi" deviceset="SMA" device="J502"/>
+<part name="RFOUT" library="connector-jqi" deviceset="SMA" device="J502">
+<attribute name="PARTNO" value="J502-ND"/>
+</part>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="V+" device=""/>
-<part name="DAC" library="pdh-module" deviceset="AD5623R" device=""/>
+<part name="DAC" library="pdh-module" deviceset="AD5623R" device="">
+<attribute name="PARTNO" value="AD5623RBRMZ-5-ND"/>
+</part>
 <part name="L6" library="rlc-jqi" deviceset="INDUCTOR" device="-0805"/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="R16" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
 <part name="R17" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="RF10" library="pdh-module" deviceset="PS-SPLITTER" device=""/>
+<part name="RF10" library="pdh-module" deviceset="PS-SPLITTER" device="">
+<attribute name="PARTNO" value="408-1095-1-ND"/>
+</part>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="IC1" library="linear" deviceset="OP27" device="D"/>
+<part name="IC1" library="linear" deviceset="OP27" device="D">
+<attribute name="PARTNO" value="OP27GSZ-REEL7CT-ND"/>
+</part>
 <part name="P+8" library="supply1" deviceset="V+" device=""/>
 <part name="P-5" library="supply1" deviceset="V-" device=""/>
 <part name="R7" library="rlc-jqi" deviceset="RES" device="0603"/>
@@ -5592,21 +5584,46 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <part name="C16" library="rlc-jqi" deviceset="CAP" device="0603"/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="GND25" library="supply1" deviceset="GND" device=""/>
-<part name="U1" library="pdh-module" deviceset="AD8021" device=""/>
+<part name="U1" library="pdh-module" deviceset="AD8021" device="">
+<attribute name="PARTNO" value="AD8021ARMZ-ND"/>
+</part>
 <part name="50R" library="rlc-jqi" deviceset="RES" device="0603"/>
 <part name="R13" library="rlc-jqi" deviceset="RES" device="0603" value="50R"/>
 <part name="GND26" library="supply1" deviceset="GND" device=""/>
 <part name="R14" library="rlc-jqi" deviceset="RES" device="0603"/>
-<part name="L7" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="720nH"/>
-<part name="L8" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="100nH"/>
-<part name="L9" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="100nH"/>
-<part name="C17" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="100pF"/>
-<part name="C25" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="680pF"/>
-<part name="C26" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="680pF"/>
+<part name="L7" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="720nH">
+<attribute name="PARTNO" value="587-3223-1-ND"/>
+</part>
+<part name="L8" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="100nH">
+<attribute name="PARTNO" value="445-6386-1-ND"/>
+</part>
+<part name="L9" library="jqi_passives" deviceset="L_FERRITE_SMD" device="LFERRITE_0603" value="100nH">
+<attribute name="PARTNO" value="445-6386-1-ND"/>
+</part>
+<part name="C17" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="100pF">
+<attribute name="PARTNO" value="445-1281-1-ND"/>
+</part>
+<part name="C25" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="680pF">
+<attribute name="PARTNO" value="1276-2329-1-ND"/>
+</part>
+<part name="C26" library="jqi_passives" deviceset="C_MLCC_SMD" device="CMLCC_0603" value="680pF">
+<attribute name="PARTNO" value="1276-2329-1-ND"/>
+</part>
 <part name="GND27" library="supply1" deviceset="GND" device=""/>
 <part name="C27" library="rlc-jqi" deviceset="CAP" device="0603"/>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="R19" library="rlc-jqi" deviceset="RES" device="0603"/>
+<part name="L10" library="rlc-jqi" deviceset="INDUCTOR" device="-0805" value="ferrite 1k"/>
+<part name="C24" library="rlc-jqi" deviceset="CAP" device="0603" value="100nF"/>
+<part name="GND29" library="supply1" deviceset="GND" device=""/>
+<part name="R15" library="rlc-jqi" deviceset="RES" device="0603" value="453R">
+<attribute name="PARTNO" value="P453HCT-ND"/>
+</part>
+<part name="P-6" library="supply1" deviceset="-5V" device=""/>
+<part name="P+9" library="supply1" deviceset="+5V" device=""/>
+<part name="C28" library="rlc-jqi" deviceset="CAP" device="0603" value="10pF">
+<attribute name="PARTNO" value="399-1049-1-ND"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -5617,7 +5634,6 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <text x="502.92" y="50.8" size="1.778" layer="98" rot="R180">decouples internal reference</text>
 <text x="147.32" y="-49.53" size="1.778" layer="91">12V?</text>
 <text x="270.51" y="128.27" size="1.778" layer="91">add X2Y capacitor for decoupling</text>
-<text x="22.86" y="52.07" size="1.778" layer="91">switch to +/-5V</text>
 <text x="195.58" y="45.72" size="1.778" layer="91">optional filter network</text>
 <text x="-31.75" y="-21.59" size="1.778" layer="91">power splitter: 408-1095-1-ND</text>
 <text x="62.23" y="8.89" size="1.778" layer="91">AD8021</text>
@@ -5625,13 +5641,21 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <text x="163.83" y="97.79" size="1.778" layer="91">use qucs to build filter</text>
 <text x="163.83" y="93.98" size="1.778" layer="91">PI topology?</text>
 <text x="207.01" y="-15.24" size="1.778" layer="91">opt 50 ohm termination</text>
-<text x="139.7" y="76.2" size="1.778" layer="91">720nH 587-3223-1-ND</text>
-<text x="139.7" y="72.39" size="1.778" layer="91">100nH 445-6386-1-ND</text>
+<text x="143.51" y="77.47" size="1.778" layer="91">720nH 587-3223-1-ND</text>
+<text x="143.51" y="73.66" size="1.778" layer="91">100nH 445-6386-1-ND</text>
 <text x="162.56" y="67.31" size="1.778" layer="91" rot="MR0">100pF 445-1281-1-ND</text>
-<text x="139.7" y="62.23" size="1.778" layer="91">680pF 1276-2329-1-ND</text>
+<text x="143.51" y="63.5" size="1.778" layer="91">680pF 1276-2329-1-ND</text>
 <text x="109.22" y="46.99" size="1.778" layer="91">Band pass ~ 20MHz</text>
 <text x="224.79" y="44.45" size="1.778" layer="91">DNI if PID is 50-ohm terminated</text>
 <text x="-85.09" y="-35.56" size="1.778" layer="91">52mil trace, 10mil isolation = 50 ohm on 62mil board</text>
+<text x="276.86" y="86.36" size="1.778" layer="91">604R for R12</text>
+<text x="-60.96" y="-58.42" size="1.778" layer="91">10dBm</text>
+<text x="22.86" y="-63.5" size="1.778" layer="91">7dBm</text>
+<text x="78.74" y="109.22" size="1.778" layer="91">7dBm</text>
+<text x="342.9" y="106.68" size="1.778" layer="91">15dBm</text>
+<text x="248.92" y="99.06" size="1.778" layer="91">swap for SO-14 package</text>
+<text x="284.48" y="119.38" size="1.778" layer="91">~ 5x gain</text>
+<text x="201.93" y="-68.58" size="1.778" layer="91">swap for right angle; use A97594-ND</text>
 </plain>
 <instances>
 <instance part="P-1" gate="1" x="10.16" y="60.96"/>
@@ -5657,19 +5681,31 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <instance part="R4" gate="G$1" x="43.18" y="25.4"/>
 <instance part="C7" gate="G$1" x="43.18" y="20.32" rot="R180"/>
 <instance part="GND5" gate="1" x="35.56" y="15.24"/>
-<instance part="RF1" gate="G$1" x="137.16" y="5.08"/>
-<instance part="RF2" gate="G$1" x="193.04" y="10.16" rot="R90"/>
+<instance part="RF1" gate="G$1" x="137.16" y="5.08">
+<attribute name="PARTNO" x="137.16" y="5.08" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="RF2" gate="G$1" x="193.04" y="10.16" rot="R90">
+<attribute name="PARTNO" x="193.04" y="10.16" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND6" gate="1" x="210.82" y="2.54"/>
 <instance part="C10" gate="G$1" x="193.04" y="-15.24" rot="R90"/>
-<instance part="PD_IN" gate="G$1" x="180.34" y="-25.4"/>
-<instance part="ERR" gate="G$1" x="284.48" y="38.1" rot="MR0"/>
-<instance part="PD_POW" gate="G$1" x="213.36" y="-68.58" rot="MR0"/>
+<instance part="PD_IN" gate="G$1" x="180.34" y="-25.4">
+<attribute name="PARTNO" x="180.34" y="-25.4" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="ERR" gate="G$1" x="284.48" y="38.1" rot="MR0">
+<attribute name="PARTNO" x="284.48" y="38.1" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="PD_POW" gate="G$1" x="213.36" y="-68.58" rot="MR0">
+<attribute name="PARTNO" x="213.36" y="-68.58" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND8" gate="1" x="182.88" y="-36.83"/>
 <instance part="GND10" gate="1" x="210.82" y="-81.28"/>
 <instance part="GND11" gate="1" x="281.94" y="27.94"/>
 <instance part="IC5" gate="G$1" x="556.26" y="30.48"/>
 <instance part="GND31" gate="1" x="482.6" y="33.02"/>
-<instance part="IC6" gate="G$1" x="411.48" y="127"/>
+<instance part="IC6" gate="G$1" x="411.48" y="127">
+<attribute name="PARTNO" x="411.48" y="127" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="SV1" gate="1" x="580.39" y="-12.7"/>
 <instance part="GND35" gate="1" x="553.72" y="-12.7"/>
 <instance part="GND13" gate="1" x="513.08" y="15.24"/>
@@ -5687,17 +5723,21 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </instance>
 <instance part="VDD3" gate="G$1" x="591.82" y="121.92"/>
 <instance part="GND15" gate="1" x="594.36" y="105.41"/>
-<instance part="ENC_HEADER" gate="1" x="500.38" y="123.19"/>
+<instance part="ENC_HEADER" gate="1" x="500.38" y="123.19">
+<attribute name="PARTNO" x="500.38" y="123.19" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="VDD2" gate="G$1" x="482.6" y="125.73"/>
 <instance part="GND16" gate="1" x="519.43" y="128.27"/>
-<instance part="RF_IN" gate="G$1" x="-69.85" y="-52.07"/>
+<instance part="RF_IN" gate="G$1" x="-69.85" y="-52.07">
+<attribute name="PARTNO" x="-69.85" y="-52.07" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C18" gate="G$1" x="-45.72" y="-52.07" rot="R180"/>
 <instance part="GND17" gate="1" x="-67.31" y="-66.04"/>
-<instance part="U$2" gate="G$1" x="19.05" y="53.34"/>
 <instance part="L3" gate="G$1" x="6.35" y="48.26"/>
 <instance part="L4" gate="G$1" x="6.35" y="22.86"/>
-<instance part="U$3" gate="G$1" x="19.05" y="20.32"/>
-<instance part="U4" gate="G$1" x="101.6" y="-55.88"/>
+<instance part="U4" gate="G$1" x="101.6" y="-55.88">
+<attribute name="PARTNO" x="101.6" y="-55.88" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND18" gate="1" x="116.84" y="-83.82"/>
 <instance part="C8" gate="G$1" x="71.12" y="-55.88" rot="R90"/>
 <instance part="C19" gate="G$1" x="86.36" y="-66.04" rot="R90"/>
@@ -5706,12 +5746,18 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <instance part="C20" gate="G$1" x="128.27" y="-68.58" rot="R90"/>
 <instance part="P+3" gate="1" x="52.07" y="-38.1"/>
 <instance part="L5" gate="G$1" x="58.42" y="-50.8"/>
-<instance part="U3" gate="G$1" x="254" y="100.33"/>
+<instance part="U3" gate="G$1" x="254" y="100.33">
+<attribute name="PARTNO" x="254" y="100.33" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="P+4" gate="1" x="264.16" y="135.89"/>
 <instance part="P-3" gate="1" x="264.16" y="62.23"/>
 <instance part="R10" gate="G$1" x="298.45" y="100.33"/>
-<instance part="R11" gate="G$1" x="281.94" y="109.22"/>
-<instance part="R12" gate="G$1" x="241.3" y="100.33" rot="R90"/>
+<instance part="R11" gate="G$1" x="281.94" y="109.22">
+<attribute name="PARTNO" x="281.94" y="109.22" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R12" gate="G$1" x="241.3" y="100.33" rot="R90">
+<attribute name="PARTNO" x="241.3" y="100.33" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND9" gate="1" x="259.08" y="81.28"/>
 <instance part="J1" gate="G$1" x="-63.5" y="125.73"/>
 <instance part="P+5" gate="1" x="-88.9" y="95.25"/>
@@ -5720,20 +5766,28 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <instance part="C21" gate="G$1" x="231.14" y="87.63" rot="R270"/>
 <instance part="C22" gate="G$1" x="199.39" y="107.95" rot="R180"/>
 <instance part="C23" gate="G$1" x="327.66" y="100.33" rot="R180"/>
-<instance part="RFOUT" gate="G$1" x="363.22" y="100.33" rot="MR0"/>
+<instance part="RFOUT" gate="G$1" x="363.22" y="100.33" rot="MR0">
+<attribute name="PARTNO" x="363.22" y="100.33" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND20" gate="1" x="355.6" y="90.17"/>
 <instance part="GND7" gate="1" x="227.33" y="20.32"/>
-<instance part="P+6" gate="1" x="391.16" y="134.62"/>
-<instance part="DAC" gate="G$1" x="113.03" y="146.05"/>
+<instance part="P+6" gate="1" x="373.38" y="137.16"/>
+<instance part="DAC" gate="G$1" x="113.03" y="146.05">
+<attribute name="PARTNO" x="113.03" y="146.05" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="L6" gate="G$1" x="86.36" y="177.8"/>
 <instance part="P+7" gate="1" x="73.66" y="185.42"/>
 <instance part="GND21" gate="1" x="100.33" y="119.38"/>
 <instance part="R16" gate="G$1" x="209.55" y="102.87" rot="R90"/>
 <instance part="R17" gate="G$1" x="241.3" y="87.63" rot="R90"/>
 <instance part="GND22" gate="1" x="209.55" y="92.71"/>
-<instance part="RF10" gate="G$1" x="-6.35" y="-52.07"/>
+<instance part="RF10" gate="G$1" x="-6.35" y="-52.07">
+<attribute name="PARTNO" x="-6.35" y="-52.07" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="GND1" gate="1" x="-6.35" y="-72.39"/>
-<instance part="IC1" gate="A" x="204.47" y="167.64"/>
+<instance part="IC1" gate="A" x="204.47" y="167.64">
+<attribute name="PARTNO" x="204.47" y="167.64" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="P+8" gate="1" x="201.93" y="208.28"/>
 <instance part="P-5" gate="1" x="201.93" y="146.05"/>
 <instance part="R7" gate="G$1" x="190.5" y="151.13" rot="R90"/>
@@ -5743,21 +5797,46 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <instance part="C16" gate="G$1" x="212.09" y="194.31" rot="R270"/>
 <instance part="GND24" gate="1" x="210.82" y="137.16"/>
 <instance part="GND25" gate="1" x="212.09" y="185.42"/>
-<instance part="U1" gate="G$1" x="63.5" y="10.16"/>
+<instance part="U1" gate="G$1" x="63.5" y="10.16">
+<attribute name="PARTNO" x="63.5" y="10.16" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="50R" gate="G$1" x="227.33" y="35.56" rot="R90"/>
 <instance part="R13" gate="G$1" x="34.29" y="2.54" rot="R90"/>
 <instance part="GND26" gate="1" x="34.29" y="-6.35"/>
 <instance part="R14" gate="G$1" x="203.2" y="-13.97" rot="R90"/>
-<instance part="L7" gate="G$1" x="119.38" y="106.68"/>
-<instance part="L8" gate="G$1" x="93.98" y="88.9" rot="R90"/>
-<instance part="L9" gate="G$1" x="137.16" y="91.44" rot="R90"/>
-<instance part="C17" gate="G$1" x="104.14" y="106.68" rot="R90"/>
-<instance part="C25" gate="G$1" x="86.36" y="88.9" rot="R180"/>
-<instance part="C26" gate="G$1" x="129.54" y="91.44" rot="R180"/>
-<instance part="GND27" gate="1" x="107.95" y="64.77"/>
+<instance part="L7" gate="G$1" x="123.19" y="107.95">
+<attribute name="PARTNO" x="123.19" y="107.95" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="L8" gate="G$1" x="97.79" y="90.17" rot="R90">
+<attribute name="PARTNO" x="97.79" y="90.17" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="L9" gate="G$1" x="140.97" y="92.71" rot="R90">
+<attribute name="PARTNO" x="140.97" y="92.71" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C17" gate="G$1" x="107.95" y="107.95" rot="R90">
+<attribute name="PARTNO" x="107.95" y="107.95" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C25" gate="G$1" x="90.17" y="90.17" rot="R180">
+<attribute name="PARTNO" x="90.17" y="90.17" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C26" gate="G$1" x="133.35" y="92.71" rot="R180">
+<attribute name="PARTNO" x="133.35" y="92.71" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="GND27" gate="1" x="111.76" y="66.04"/>
 <instance part="C27" gate="G$1" x="93.98" y="171.45" rot="R90"/>
 <instance part="GND28" gate="1" x="93.98" y="163.83"/>
 <instance part="R19" gate="G$1" x="242.57" y="128.27" rot="R180"/>
+<instance part="L10" gate="G$1" x="379.73" y="127"/>
+<instance part="C24" gate="G$1" x="252.73" y="123.19" rot="R270"/>
+<instance part="GND29" gate="1" x="252.73" y="115.57"/>
+<instance part="R15" gate="G$1" x="232.41" y="116.84" rot="R180">
+<attribute name="PARTNO" x="232.41" y="116.84" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="P-6" gate="1" x="19.05" y="17.78"/>
+<instance part="P+9" gate="1" x="19.05" y="55.88"/>
+<instance part="C28" gate="G$1" x="69.85" y="-17.78" rot="R90">
+<attribute name="PARTNO" x="69.85" y="-17.78" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -5979,27 +6058,31 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </segment>
 <segment>
 <pinref part="C25" gate="G$1" pin="1"/>
-<wire x1="86.36" y1="86.36" x2="86.36" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="90.17" y1="87.63" x2="90.17" y2="80.01" width="0.1524" layer="91"/>
 <pinref part="L8" gate="G$1" pin="1"/>
-<wire x1="86.36" y1="78.74" x2="93.98" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="78.74" x2="93.98" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="90.17" y1="80.01" x2="97.79" y2="80.01" width="0.1524" layer="91"/>
+<wire x1="97.79" y1="80.01" x2="97.79" y2="82.55" width="0.1524" layer="91"/>
 <pinref part="C26" gate="G$1" pin="1"/>
-<wire x1="129.54" y1="88.9" x2="129.54" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="133.35" y1="90.17" x2="133.35" y2="82.55" width="0.1524" layer="91"/>
 <pinref part="L9" gate="G$1" pin="1"/>
-<wire x1="129.54" y1="81.28" x2="137.16" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="81.28" x2="137.16" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="78.74" x2="107.95" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="107.95" y1="78.74" x2="129.54" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="78.74" x2="129.54" y2="81.28" width="0.1524" layer="91"/>
-<junction x="93.98" y="78.74"/>
-<junction x="129.54" y="81.28"/>
+<wire x1="133.35" y1="82.55" x2="140.97" y2="82.55" width="0.1524" layer="91"/>
+<wire x1="140.97" y1="82.55" x2="140.97" y2="85.09" width="0.1524" layer="91"/>
+<wire x1="97.79" y1="80.01" x2="111.76" y2="80.01" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="80.01" x2="133.35" y2="80.01" width="0.1524" layer="91"/>
+<wire x1="133.35" y1="80.01" x2="133.35" y2="82.55" width="0.1524" layer="91"/>
+<junction x="97.79" y="80.01"/>
+<junction x="133.35" y="82.55"/>
 <pinref part="GND27" gate="1" pin="GND"/>
-<wire x1="107.95" y1="67.31" x2="107.95" y2="78.74" width="0.1524" layer="91"/>
-<junction x="107.95" y="78.74"/>
+<wire x1="111.76" y1="68.58" x2="111.76" y2="80.01" width="0.1524" layer="91"/>
+<junction x="111.76" y="80.01"/>
 </segment>
 <segment>
 <pinref part="C27" gate="G$1" pin="P$1"/>
 <pinref part="GND28" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C24" gate="G$1" pin="P$2"/>
+<pinref part="GND29" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="-15V" class="0">
@@ -6088,14 +6171,6 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <wire x1="52.07" y1="-50.8" x2="53.34" y2="-50.8" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C9" gate="G$1" pin="P$2"/>
-<pinref part="IC6" gate="G$1" pin="VI"/>
-<wire x1="391.16" y1="127" x2="403.86" y2="127" width="0.1524" layer="91"/>
-<pinref part="P+6" gate="1" pin="V+"/>
-<wire x1="391.16" y1="132.08" x2="391.16" y2="127" width="0.1524" layer="91"/>
-<junction x="391.16" y="127"/>
-</segment>
-<segment>
 <pinref part="P+8" gate="1" pin="V+"/>
 <pinref part="IC1" gate="A" pin="V+"/>
 <wire x1="201.93" y1="205.74" x2="201.93" y2="200.66" width="0.1524" layer="91"/>
@@ -6104,6 +6179,12 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <junction x="201.93" y="200.66"/>
 <pinref part="C16" gate="G$1" pin="P$1"/>
 <wire x1="212.09" y1="200.66" x2="212.09" y2="199.39" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+6" gate="1" pin="V+"/>
+<wire x1="373.38" y1="134.62" x2="373.38" y2="127" width="0.1524" layer="91"/>
+<pinref part="L10" gate="G$1" pin="P$1"/>
+<wire x1="374.65" y1="127" x2="373.38" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6114,16 +6195,27 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <pinref part="L3" gate="G$1" pin="P$1"/>
 <wire x1="1.27" y1="48.26" x2="-2.54" y2="48.26" width="0.1524" layer="91"/>
 <junction x="-2.54" y="48.26"/>
+<pinref part="U1" gate="G$1" pin="V+"/>
+<wire x1="-2.54" y1="43.18" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="43.18" x2="63.5" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="C6" gate="G$1" pin="P$1"/>
-<wire x1="-15.24" y1="22.86" x2="-2.54" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-2.54" y1="22.86" x2="-2.54" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="22.86" x2="-3.81" y2="22.86" width="0.1524" layer="91"/>
 <pinref part="L4" gate="G$1" pin="P$1"/>
-<wire x1="-2.54" y1="22.86" x2="1.27" y2="22.86" width="0.1524" layer="91"/>
-<junction x="-2.54" y="22.86"/>
+<pinref part="U1" gate="G$1" pin="V-"/>
+<wire x1="-3.81" y1="22.86" x2="1.27" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="0" x2="63.5" y2="-13.97" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="-13.97" x2="58.42" y2="-13.97" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-13.97" x2="-3.81" y2="-13.97" width="0.1524" layer="91"/>
+<wire x1="-3.81" y1="-13.97" x2="-3.81" y2="22.86" width="0.1524" layer="91"/>
+<junction x="-3.81" y="22.86"/>
+<pinref part="C28" gate="G$1" pin="P$1"/>
+<wire x1="69.85" y1="-22.86" x2="58.42" y2="-22.86" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="-22.86" x2="58.42" y2="-13.97" width="0.1524" layer="91"/>
+<junction x="58.42" y="-13.97"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -6178,16 +6270,16 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </segment>
 <segment>
 <pinref part="C25" gate="G$1" pin="2"/>
-<wire x1="86.36" y1="93.98" x2="86.36" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="90.17" y1="95.25" x2="90.17" y2="97.79" width="0.1524" layer="91"/>
 <pinref part="L8" gate="G$1" pin="2"/>
-<wire x1="86.36" y1="96.52" x2="93.98" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="90.17" y1="97.79" x2="97.79" y2="97.79" width="0.1524" layer="91"/>
 <pinref part="C17" gate="G$1" pin="1"/>
-<wire x1="101.6" y1="106.68" x2="93.98" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="106.68" x2="93.98" y2="96.52" width="0.1524" layer="91"/>
-<junction x="93.98" y="96.52"/>
-<label x="90.17" y="107.95" size="1.778" layer="95"/>
-<wire x1="93.98" y1="106.68" x2="71.12" y2="106.68" width="0.1524" layer="91"/>
-<junction x="93.98" y="106.68"/>
+<wire x1="105.41" y1="107.95" x2="97.79" y2="107.95" width="0.1524" layer="91"/>
+<wire x1="97.79" y1="107.95" x2="97.79" y2="97.79" width="0.1524" layer="91"/>
+<junction x="97.79" y="97.79"/>
+<label x="93.98" y="109.22" size="1.778" layer="95"/>
+<wire x1="97.79" y1="107.95" x2="74.93" y2="107.95" width="0.1524" layer="91"/>
+<junction x="97.79" y="107.95"/>
 </segment>
 </net>
 <net name="PHASE_CTL" class="0">
@@ -6547,14 +6639,6 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <label x="511.81" y="113.03" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="+6V" class="0">
-<segment>
-<pinref part="L3" gate="G$1" pin="P$2"/>
-<pinref part="U$2" gate="G$1" pin="+6V"/>
-<wire x1="11.43" y1="48.26" x2="19.05" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="19.05" y1="48.26" x2="19.05" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$16" class="0">
 <segment>
 <pinref part="RF_IN" gate="G$1" pin="1"/>
@@ -6577,15 +6661,15 @@ Additional passive components (RLC and trimpots) can be added.</description>
 </net>
 <net name="-5V" class="0">
 <segment>
-<pinref part="L4" gate="G$1" pin="P$2"/>
-<pinref part="U$3" gate="G$1" pin="-5V"/>
-<wire x1="11.43" y1="22.86" x2="19.05" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="19.05" y1="22.86" x2="19.05" y2="20.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="P-3" gate="1" pin="-5V"/>
 <pinref part="U3" gate="G$1" pin="V-"/>
 <wire x1="264.16" y1="64.77" x2="264.16" y2="90.17" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="L4" gate="G$1" pin="P$2"/>
+<wire x1="11.43" y1="22.86" x2="19.05" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="19.05" y1="22.86" x2="19.05" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="P-6" gate="1" pin="-5V"/>
 </segment>
 </net>
 <net name="N$21" class="0">
@@ -6648,6 +6732,12 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <pinref part="L6" gate="G$1" pin="P$1"/>
 <wire x1="73.66" y1="177.8" x2="81.28" y2="177.8" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="L3" gate="G$1" pin="P$2"/>
+<wire x1="11.43" y1="48.26" x2="19.05" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="19.05" y1="48.26" x2="19.05" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="P+9" gate="1" pin="+5V"/>
+</segment>
 </net>
 <net name="N$8" class="0">
 <segment>
@@ -6682,8 +6772,13 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <segment>
 <pinref part="R11" gate="G$1" pin="P$1"/>
 <pinref part="U3" gate="G$1" pin="FB"/>
-<wire x1="276.86" y1="109.22" x2="271.78" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="109.22" x2="274.32" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="109.22" x2="271.78" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="109.22" x2="271.78" y2="105.41" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="P$1"/>
+<wire x1="237.49" y1="116.84" x2="274.32" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="116.84" x2="274.32" y2="109.22" width="0.1524" layer="91"/>
+<junction x="274.32" y="109.22"/>
 </segment>
 </net>
 <net name="GAIN_CTL" class="0">
@@ -6706,16 +6801,6 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <pinref part="R17" gate="G$1" pin="P$2"/>
 <wire x1="241.3" y1="92.71" x2="251.46" y2="92.71" width="0.1524" layer="91"/>
 <junction x="241.3" y="92.71"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="C22" gate="G$1" pin="P$1"/>
-<pinref part="U3" gate="G$1" pin="IN+"/>
-<wire x1="204.47" y1="107.95" x2="209.55" y2="107.95" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="P$2"/>
-<wire x1="209.55" y1="107.95" x2="251.46" y2="107.95" width="0.1524" layer="91"/>
-<junction x="209.55" y="107.95"/>
 </segment>
 </net>
 <net name="N$29" class="0">
@@ -6809,33 +6894,66 @@ Additional passive components (RLC and trimpots) can be added.</description>
 <segment>
 <pinref part="C17" gate="G$1" pin="2"/>
 <pinref part="L7" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="113.03" y1="107.95" x2="115.57" y2="107.95" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RF2" class="0">
 <segment>
 <pinref part="C22" gate="G$1" pin="P$2"/>
-<wire x1="194.31" y1="107.95" x2="182.88" y2="107.95" width="0.1524" layer="91"/>
 <label x="182.88" y="107.95" size="1.778" layer="95"/>
 <pinref part="L7" gate="G$1" pin="2"/>
 <pinref part="C26" gate="G$1" pin="2"/>
-<wire x1="127" y1="106.68" x2="129.54" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="106.68" x2="129.54" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="130.81" y1="107.95" x2="133.35" y2="107.95" width="0.1524" layer="91"/>
+<wire x1="133.35" y1="107.95" x2="133.35" y2="97.79" width="0.1524" layer="91"/>
 <pinref part="L9" gate="G$1" pin="2"/>
-<wire x1="129.54" y1="106.68" x2="137.16" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="106.68" x2="137.16" y2="99.06" width="0.1524" layer="91"/>
-<junction x="129.54" y="106.68"/>
-<wire x1="137.16" y1="106.68" x2="182.88" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="106.68" x2="182.88" y2="107.95" width="0.1524" layer="91"/>
-<junction x="137.16" y="106.68"/>
+<wire x1="133.35" y1="107.95" x2="140.97" y2="107.95" width="0.1524" layer="91"/>
+<wire x1="140.97" y1="107.95" x2="140.97" y2="100.33" width="0.1524" layer="91"/>
+<junction x="133.35" y="107.95"/>
+<wire x1="140.97" y1="107.95" x2="194.31" y2="107.95" width="0.1524" layer="91"/>
+<junction x="140.97" y="107.95"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="P$1"/>
-<wire x1="247.65" y1="128.27" x2="259.08" y2="128.27" width="0.1524" layer="91"/>
+<wire x1="247.65" y1="128.27" x2="252.73" y2="128.27" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="VG"/>
+<wire x1="252.73" y1="128.27" x2="259.08" y2="128.27" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="128.27" x2="259.08" y2="113.03" width="0.1524" layer="91"/>
+<pinref part="C24" gate="G$1" pin="P$1"/>
+<junction x="252.73" y="128.27"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="L10" gate="G$1" pin="P$2"/>
+<pinref part="C9" gate="G$1" pin="P$2"/>
+<wire x1="384.81" y1="127" x2="391.16" y2="127" width="0.1524" layer="91"/>
+<pinref part="IC6" gate="G$1" pin="VI"/>
+<wire x1="391.16" y1="127" x2="403.86" y2="127" width="0.1524" layer="91"/>
+<junction x="391.16" y="127"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="R15" gate="G$1" pin="P$2"/>
+<wire x1="227.33" y1="116.84" x2="227.33" y2="107.95" width="0.1524" layer="91"/>
+<pinref part="C22" gate="G$1" pin="P$1"/>
+<pinref part="U3" gate="G$1" pin="IN+"/>
+<wire x1="204.47" y1="107.95" x2="209.55" y2="107.95" width="0.1524" layer="91"/>
+<pinref part="R16" gate="G$1" pin="P$2"/>
+<wire x1="209.55" y1="107.95" x2="227.33" y2="107.95" width="0.1524" layer="91"/>
+<junction x="209.55" y="107.95"/>
+<wire x1="227.33" y1="107.95" x2="251.46" y2="107.95" width="0.1524" layer="91"/>
+<junction x="227.33" y="107.95"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="C28" gate="G$1" pin="P$2"/>
+<pinref part="U1" gate="G$1" pin="CMP"/>
+<wire x1="69.85" y1="-12.7" x2="68.58" y2="-12.7" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="-12.7" x2="68.58" y2="2.54" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
